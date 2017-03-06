@@ -1,0 +1,42 @@
+序
+===
+[ecr](http://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_GetStarted.html)
+ecr 基本上就是 aws 提供的私人 docker registry, 差別在於幾點
+1. 相對於docker hub, ecr 沒有提供現上 build 的服務, 所以基本上就只是個storage
+2. cache 的部分 docker hub 是針對 image 的 commit 來做cache, ecr 是針對 image 來做cache, 所以佔的空間比較大
+3. 收費方式ecr 是針對容量來計價 [0.1 usd/GB](https://aws.amazon.com/tw/ecr/pricing/), docker hub 的account 是針對功能[計價](https://www.docker.com/pricing) 算年費
+
+＊ 由於ecr 的cache 是base on image, 所以佔的空間很大(就是不會共用commit), 但是storage 的收費約是 s3 的4倍... auth 的機制s3 都有.. 但是要存取就要自己處理～ 各有好處, 對比dockerhub, 小量的時候比較便宜.. 
+
+install
+===
+https://wiki.jenkins-ci.org/display/JENKINS/Amazon+ECR
+
+
+usega
+===
+
+### setup permission
+1. create aws ami & access token
+https://console.aws.amazon.com/iam/home?region=us-west-2#/users
+![imgs/aws_key.png](readme.mkd)
+
+2. create jenkins credentials
+http://52.43.136.196:8080/credentials/
+![imgs/aws_jenkins_cert.png](readme.mkd)
+
+3. create ecr repo
+https://us-west-2.console.aws.amazon.com/ecs/home?region={REGION}#/repositories
+![imgs/ecr_repo.png](readme.mkd)
+
+1. ECR_DOMAIN # 12345678.dkr.ecr.us-west-2.amazonaws.com
+2. ECR_REPOSITORY # aws ecr repository name
+3. ECR_KEY = ecr:{region}:{aws key id} # ecr:us-west-2:aws 
+
+記住
+
+```
+    docker.withRegistry("https://${ECR_DOMAIN}", "${ECR_KEY}") {
+        sh 'docker push ${ECR_DOMAIN}/${ECR_PROJECT}'
+    }
+```

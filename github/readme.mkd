@@ -1,0 +1,35 @@
+序
+===
+[github](https://github.com)
+github 就是 基於 git(version controll) 的 service
+主要需求就是 jenkins 針對 github 的整合
+包含
+1. commit status
+2. commit ci
+
+
+install
+===
+https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
+
+
+usega
+===
+
+### setup permission
+1. create github token for jenkins
+https://github.com/settings/tokens/new
+![imgs/github_token_view.png](readme.mkd)
+![imgs/github_token.png](readme.mkd)
+
+2. create jenkins credentials
+http://52.43.136.196:8080/credentials/
+![imgs/](aws_jenkins_cert.png)
+
+3. create github resoure project..
+
+4. scm
+
+```
+    checkout scm
+```

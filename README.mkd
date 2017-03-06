@@ -1,0 +1,20 @@
+序
+---
+這次建置 python + docker + jenkins pipeline 的小記錄
+
+需求
+---
+1. ci/cd flow
+2. slack notification
+3. git commit status
+4. custom build name
+5. report html
+6. custom build script +
+7. amazon ECR build
+8. docker build
+9. ssh keygen
+10. jenkinsci/jnlp-slave support python & docker client
+
+備註
+---
+後面採納了 jenkins pipeline 來做ci/cd, 所以這次主要都會用 pipeline 的設定作為介紹

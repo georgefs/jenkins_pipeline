@@ -1,0 +1,40 @@
+序
+===
+[ec2](https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin)
+基本上ci/cd 不是一個service, 只需要在需要的時候使用即可, jenkins 這邊有提供cloud package, 讓你在需要做ci/cd 的時候才去啟動ec2 的機器, 可以選擇不同的機器類別來啟動
+1. 相對於travis, ec2 啟動的 m4large spot 一小時的價錢約 0.12元左右, 約可以啟動 1075hr 約44天, 每個 vm 可以啟動2個instance, 加上有負載問題, 所以換算 ec2 比較划算
+2. 相對於travis, ec2 可以選擇要用什麼機器來build, 這次我遇到的尷尬狀況就是 syntaxnet build 要太多資源, travis 沒辦法完成
+
+install
+===
+https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin
+
+
+usega
+===
+
+### setup permission
+1. create ec2 role ssh key
+基本上開機器會叫你選擇user or create user 那個就是, 這時候download 的ssh key 
+
+2. create jenkins aws auth
+
+3. 
+* 新增ec2 cloud source
+[imgs/cloud.png](readme.mkd)
+
+* config ec2 auth
+[imgs/ec2_base.png](readme.mkd)
+
+* 設定 slave instance type & label
+[imgs/jenkins_ec2_ami.png](readme.mkd)
+
+記住
+
+```
+    node("{label}"){
+        stage{
+            ....
+        }
+    }
+```
