@@ -1,0 +1,23 @@
+序
+===
+這部分是設定全域的環境變數的
+如果你有參數想要在所有的task 裡面share, 但是又沒有安全性問題的話可以用環境變數來指定！！
+
+install
+===
+https://wiki.jenkins-ci.org/display/JENKINS/Global+Variable+String+Parameter+Plugin
+
+usega
+===
+1. 設定
+![imgs/global_env.png](imgs/global_env.png)
+jenkins ~> 管理jenkins ~> 全域屬性
+
+2. pipeline 使用
+
+pipeline 存取env 變數透過 ${env name}
+```
+sh 'echo ${ECR_DOMAIN}'
+```
+像這樣就可以測了！！
+
