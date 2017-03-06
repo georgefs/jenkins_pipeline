@@ -33,10 +33,11 @@ https://us-west-2.console.aws.amazon.com/ecs/home?region={REGION}#/repositories
 2. ECR_REPOSITORY # aws ecr repository name
 3. ECR_KEY = ecr:{region}:{aws key id} # ecr:us-west-2:aws 
 
-記住
+* 記住 region 是ecr 所在的regio
 
 ```
     docker.withRegistry("https://${ECR_DOMAIN}", "${ECR_KEY}") {
         sh 'docker push ${ECR_DOMAIN}/${ECR_PROJECT}'
+        sh 'docker pull ${ECR_DOMAIN}/${ECR_PROJECT}'
     }
 ```
