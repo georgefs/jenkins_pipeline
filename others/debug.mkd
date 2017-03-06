@@ -1,0 +1,19 @@
+序
+===
+這邊簡單介紹在jenkins debug 的workflow
+
+
+1. task debug 
+---
+![img/jenkins_console.png][img/jenkins_console.png]
+一般錯誤只要到建制歷程裡面點擊 Console Output, 就可以直接看到整個 console 跑的過程
+如果是pipeline 去建制歷程裡面點擊 Replay 可以動態修改pipeline code, 再重新build
+
+
+
+2. 系統debug
+---
+![img/jenkins_log.png][img/jenkins_log.png]
+主要是jenkins 系統層級的bug, 像是 cloud slave 開不起來這種, 這部分就要去系統記錄裡面看
+
+jenkins ~> 管理jenkins ~> 系統紀錄, 這邊就有系統的額外資訊可以看～(重開就會清除)
