@@ -21,13 +21,13 @@ usega
 
 3. 
 * 新增ec2 cloud source
-[imgs/cloud.png](readme.mkd)
+![imgs/cloud.png](imgs/cloud.png)
 
 * config ec2 auth
-[imgs/ec2_base.png](readme.mkd)
+![imgs/ec2_base.png](imgs/ec2_base.png)
 
 * 設定 slave instance type & label
-[imgs/jenkins_ec2_ami.png](readme.mkd)
+![imgs/jenkins_ec2_ami.png](imgs/jenkins_ec2_ami.png)
 
 記住
 

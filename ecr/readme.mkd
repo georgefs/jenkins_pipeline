@@ -19,15 +19,15 @@ usega
 ### setup permission
 1. create aws ami & access token
 https://console.aws.amazon.com/iam/home?region=us-west-2#/users
-![imgs/aws_key.png](readme.mkd)
+![imgs/aws_key.png](imgs/aws_key.png)
 
 2. create jenkins credentials
 http://52.43.136.196:8080/credentials/
-![imgs/aws_jenkins_cert.png](readme.mkd)
+![imgs/aws_jenkins_cert.png](imgs/aws_jenkins_cert.png)
 
 3. create ecr repo
 https://us-west-2.console.aws.amazon.com/ecs/home?region={REGION}#/repositories
-![imgs/ecr_repo.png](readme.mkd)
+![imgs/ecr_repo.png](imgs/ecr_repo.png)
 
 1. ECR_DOMAIN # 12345678.dkr.ecr.us-west-2.amazonaws.com
 2. ECR_REPOSITORY # aws ecr repository name

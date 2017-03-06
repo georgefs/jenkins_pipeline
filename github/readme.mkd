@@ -19,12 +19,12 @@ usega
 ### setup permission
 1. create github token for jenkins
 https://github.com/settings/tokens/new
-![imgs/github_token_view.png](readme.mkd)
-![imgs/github_token.png](readme.mkd)
+![imgs/github_token_view.png](imgs/github_token_view.png)
+![imgs/github_token.png](imgs/github_token.png)
 
 2. create jenkins credentials
 http://52.43.136.196:8080/credentials/
-![imgs/](aws_jenkins_cert.png)
+![imgs/aws_jenkins_cert.png](imgs/aws_jenkins_cert.png)
 
 3. create github resoure project..
 
