@@ -1,0 +1,41 @@
+序
+===
+jenkins 有提供 Credentials 供存取使用, 但是通常都直接寫在plugin 裡面用ui設定, 這邊主要是講要怎麼樣在pipeline 裡面使用 Credentials file or variable
+
+install
+===
+https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Binding+Plugin
+
+
+        withCredentials([file(credentialsId: 'ssh', variable: 'ssh')]) {
+            sh 'ls $ssh'
+            sh 'mv $ssh env/ssh.tgz'
+            sh 'cd env && tar zxvf ssh.tgz'
+        }
+usega
+===
+create
+jenkins ~> Credentials ~> global ~> Add Credentials
+
+username/password
+```
+ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'amazon',
+                            usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                //available as an env variable, but will be masked if you try to print it out any which way
+                sh 'echo $PASSWORD'
+                echo "${env.USERNAME}"
+}
+```
+
+file
+```
+withCredentials([file(credentialsId: 'ssh', variable: 'ssh')]) {
+	sh 'ls $ssh'
+	sh 'mv $ssh env/ssh.tgz'
+	sh 'cd env && tar zxvf ssh.tgz'
+}
+```
+像這個就是把ssh key 壓縮在使用的範例
+透過這種方法你可以把比較私密的金要先壓縮起來上傳到jenkins 在取出來
+
+＊目前只支援username/password & file 的存取, 其他ssh, aws...etc 不一定可以這樣用, 基本上只要有檔案存取存取檔案我想應該就足夠應付所有問題了
