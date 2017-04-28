@@ -1,0 +1,7 @@
+ecs instance 有時候因為不明原因會當機
+連帶docker 不正確重開, 導致status 檔案生成出現問題
+
+state.json no such file or directory docker
+
+這部分請刪除 
+/var/run/docker/libcontainerd/containerd 這個資料夾即可
